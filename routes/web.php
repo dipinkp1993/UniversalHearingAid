@@ -24,3 +24,5 @@ Route::get('/agents', [App\Http\Controllers\HomeController::class, 'agents'])->n
 Route::post('/agents', [App\Http\Controllers\HomeController::class, 'addAgents'])->name('addagents');
 Route::get('/getagents', [App\Http\Controllers\HomeController::class, 'loadAgents'])->name('getagents');
 Route::post('/deleteagents/{id}', [App\Http\Controllers\HomeController::class, 'deleteAgent'])->name('deleteagents');
+Route::get('/estimates', [App\Http\Controllers\HomeController::class, 'estimates'])->name('estimates');
+Route::post('/estimates', [App\Http\Controllers\HomeController::class, 'addEstimates'])->name('addestimates');

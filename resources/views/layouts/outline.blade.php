@@ -88,12 +88,6 @@ header('Content-Type: text/html');?>
         @endif
       </li>
       @endforeach
-     
-    
-      <li class="sidebar-header">LABELS</li>
-      <li><a href="javaScript:void();" class="waves-effect"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
-      <li><a href="javaScript:void();" class="waves-effect"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
-      <li><a href="javaScript:void();" class="waves-effect"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
     </ul>
 	 
    </div>

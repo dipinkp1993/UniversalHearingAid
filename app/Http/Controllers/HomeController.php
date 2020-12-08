@@ -33,4 +33,12 @@ class HomeController extends Controller
         $agents=Agents::find($aid);
         $agents->delete();
     }
+    public function estimates()
+    {
+        return view('estimates');
+    }
+    public function addEstimates(Request $request)
+    {
+        createEstimate($request);        
+    }
 }

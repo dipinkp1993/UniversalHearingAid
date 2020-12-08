@@ -102,8 +102,9 @@
           </div>
         </div>
       </div>
+      
   </div>
-   
+
   
   
   
@@ -112,7 +113,9 @@
 </template>
 
 <script>
+import Estimates from './Estimates.vue';
     export default {
+  components: { Estimates },
       data(){
         return{
           newagent:{aname:'',cno:''},
@@ -138,12 +141,13 @@
           else if(input['cno']==''){
             this.hasNameError=true;
             this.nameError="Whoops!Please Enter Phone Number";
-            this.hasAdded
+            this.hasAdded=false;
             input=null;
           }
           else if(!rembno.test(input['cno'])){
             this.hasNameError=true;
             this.nameError="Whoops!Please Enter Valid Phone Number"
+            this.hasAdded=false;
 
           }
           else{
