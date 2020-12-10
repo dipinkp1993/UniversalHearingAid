@@ -59,6 +59,10 @@
       </div>
     </div>
   </div><!--End Row-->
+  <div class="row">
+  </div>
+
+
     <div class="row" v-if="l>0">
         <div class="col-lg-12">
           <div class="card">
@@ -86,7 +90,7 @@
           </div>
         </div>
       </div><!-- End Row-->
-      <div class="row" v-else>
+     <div class="row" v-else>
         <div class="col-lg-12">
           <div class="card">
              
@@ -189,7 +193,7 @@ import Estimates from './Estimates.vue';
           if(confirm("Do You Want to Delete?")){
             axios.post('/deleteagents/'+agentid).then(res=>{
               this.agents=this.agents.filter(ag=>ag.id!==agentid);
-              this.l=agents.length;
+              this.l=this.agents.length;
 
             })
           }

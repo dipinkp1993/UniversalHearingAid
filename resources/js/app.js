@@ -37,8 +37,9 @@ require('@/assets/js/index.js');*/
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('home-component', require('./components/Home.vue').default);
-Vue.component('agents-component', require('./components/Addagents.vue').default)
-Vue.component('estimates-component', require('./components/Estimates.vue').default)
+Vue.component('agents-component', require('./components/Addagents.vue').default);
+Vue.component('estimates-component', require('./components/Estimates.vue').default);
+Vue.component('update-estimates-component', require('./components/UpdateEstimates.vue').default);
 
 
 /**

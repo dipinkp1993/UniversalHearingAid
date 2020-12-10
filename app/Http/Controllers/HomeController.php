@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Agents;
+use App\Models\Estimates;
 use Illuminate\Http\Request;
 
 
@@ -40,5 +41,19 @@ class HomeController extends Controller
     public function addEstimates(Request $request)
     {
         createEstimate($request);        
+    }
+    public function getEstimatesCurrentDate()
+    {
+        return getEstimatesToday();
+    }
+    public function deleteEstimate($eid)
+    {
+        $estmts=Estimates::find($eid);
+        $estmts->delete();
+    }
+    public function getInvoice($id)
+    {
+        $inv=getInvoiceById($id);
+        return view('invoice',compact('inv'));
     }
 }

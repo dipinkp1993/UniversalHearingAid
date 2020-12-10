@@ -26,3 +26,6 @@ Route::get('/getagents', [App\Http\Controllers\HomeController::class, 'loadAgent
 Route::post('/deleteagents/{id}', [App\Http\Controllers\HomeController::class, 'deleteAgent'])->name('deleteagents');
 Route::get('/estimates', [App\Http\Controllers\HomeController::class, 'estimates'])->name('estimates');
 Route::post('/estimates', [App\Http\Controllers\HomeController::class, 'addEstimates'])->name('addestimates');
+Route::get('/getestimatestoday', [App\Http\Controllers\HomeController::class, 'getEstimatesCurrentDate'])->name('addestimates');
+Route::post('/deleteestimates/{id}', [App\Http\Controllers\HomeController::class, 'deleteEstimate'])->name('deleteagents');
+Route::get('/invoice/{id}', [App\Http\Controllers\HomeController::class, 'getInvoice'])->name('getinvoice');
