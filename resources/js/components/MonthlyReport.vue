@@ -44,6 +44,7 @@
               <div class="table-responsive">
               <table id="default-datatable" class="table table-bordered">
                 <thead>
+                  
                     <tr>
                         <th class="text-center">Name</th>
                         <th class="text-center">Agent Name</th>

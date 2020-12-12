@@ -24,14 +24,18 @@
 <body>
  <!-- Start wrapper-->
  <div id="wrapper">
-    <div class="height-100v d-flex align-items-center justify-content-center">
-	<div class="card border-primary border-top-sm border-bottom-sm card-authentication1 mx-auto my-5 animated bounceInDown">
+ 
+    <div class="height-70v d-flex align-items-center justify-content-center">
+      
+	<div class="card border-info border-top-sm border-bottom-sm bg-light rounded-circle card-authentication1 mx-auto my-5 animated bounceInDown">
+   
 		<div class="card-body">
+      
 		 <div class="card-content p-2">
 		 	<div class="text-center">
 		 		<img src="assets/images/logo-icon.png">
 		 	</div>
-		  <div class="card-title text-uppercase text-center py-3">Sign In</div>
+		  <div class="card-title text-uppercase text-center py-3">Sign In-Customer Records</div>
             <form method="POST" action="{{ route('login') }}">
                 @csrf
 			  <div class="form-group">
