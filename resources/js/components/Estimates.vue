@@ -78,9 +78,7 @@
       </div>
     </div>
   </div><!--End Row--> 
-  <div class="row">
-<update-estimates-component></update-estimates-component>
-  </div>
+ 
   <div class="row" v-if="l>0">
         <div class="col-lg-12">
           <div class="card">
@@ -97,7 +95,7 @@
                         <th class="text-center">Complaint</th>
                         <th class="text-center">Estimated Price</th>
                         <th class="text-center">Download</th>
-                        <th class="text-center">Update</th>
+                      
                         <th class="text-center">Delete</th>
                     </tr>
                 </thead>
@@ -110,7 +108,6 @@
                         <td class="text-center">{{estimate.complaints}}</td>
                         <td class="text-center">{{estimate.estimated_price}}</td>
                         <td class="text-center"><a @click="openInvoice(estimate.id)"><i class="fa fa-file-o"></i></a></td>
-                        <td class="text-center" @click="updateEstimateForm(estimate.id)"><a href="">Update</a></td>
                         <td class="text-center" @click.prevent="deleteEstimates(estimate.id)"><a ><i class="fa fa-trash"></i></a></td>       
                     </tr>
                     <tr><th class="text-center" colspan="4">Total collected Today</th><th class="text-center">{{total}}</th></tr>
@@ -141,11 +138,9 @@
   </div>
 </template>
 <script>
-   import {UpdateEstimates} from './UpdateEstimates.vue'
+  
     export default {
-      components:{
-        UpdateEstimates
-      },
+      
       data(){
         return{
           newestimate:{cname:'',aid:'',mname:'',mno:'',eprice:'',comp:''},
@@ -206,7 +201,7 @@
             input=null;
           }
          else{
-            axios.post('/estimates',input).then(res=>{
+                axios.post('/estimates',input).then(res=>{
                 this.errorState(false,false,false,false,false,true,false);
                 this.successMsg="New Estimate has been Added Succesfully";
                 this.newestimate={cname:'',aid:'',mname:'',mno:'',eprice:''};

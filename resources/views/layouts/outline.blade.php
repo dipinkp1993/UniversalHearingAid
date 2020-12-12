@@ -82,7 +82,7 @@ header('Content-Type: text/html');?>
         @if(!empty($page['sublinks']))
         <ul class="sidebar-submenu">
         @foreach($page['sublinks'] as $s)
-        <li><a href="#"><i class="fa fa-circle-o"></i>{{$s['linktitle']}}</a></li>
+        <li><a href="{{$s['link_slug']}}"><i class="fa fa-circle-o"></i>{{$s['linktitle']}}</a></li>
         @endforeach
         </ul>
         @endif

@@ -51,4 +51,55 @@ function getInvoiceById($eid)
     ->where('estimates.id',$eid)->first();
     return $estimate;
 }
+function getDistinctDates($data){
+    $report = DB::table('estimates')
+    ->select(DB::Raw('DATE(estimates.created_at) as day'))
+    ->whereMonth('estimates.created_at', $data->m)
+    ->whereYear('estimates.created_at', $data->y)
+    ->distinct()
+    ->get();
+    return $report;
+}
+function getEntry($date)
+{
+    
+    $report = DB::table('estimates')
+    ->select('agents.agent_name','estimates.id as eid','estimates.cust_name','estimates.machine_name','estimates.machine_number','estimates.estimated_price','estimates.complaints','estimates.created_at')
+    ->join('agents','estimates.agentid','=','agents.id')
+    ->whereDate('estimates.created_at',$date)
+    ->get();
+    return $report;
+}
+function getReportByMonth($data)
+{
+    $report = DB::table('estimates')
+    ->select('agents.agent_name','estimates.id','estimates.cust_name','estimates.machine_name','estimates.machine_number','estimates.estimated_price','estimates.complaints',DB::Raw('DATE(estimates.created_at) as day'))
+    ->join('agents','estimates.agentid','=','agents.id')
+    ->whereMonth('estimates.created_at', $data->m)
+    ->whereYear('estimates.created_at', $data->y)
+    ->orderBy('day','ASC')
+    ->get();
+    return $report;
+}
+function getTotalBydate($data)
+{
+    
+    $report = DB::table('estimates')
+    ->select(DB::Raw('DATE(estimates.created_at) as day,SUM(estimated_price) as tprice','esimates.id as estid'))
+    ->whereMonth('estimates.created_at', $data->m)
+    ->whereYear('estimates.created_at', $data->y)
+    ->groupBy('day')
+    ->orderBy('day','ASC')
+    ->get();
+    return $report;
+}
+function getEstimatesAday($day)
+{
+    $estimates=DB::table('estimates')
+    ->select('agents.agent_name','estimates.id','estimates.cust_name','estimates.machine_name','estimates.machine_number','estimates.estimated_price','estimates.complaints')
+    ->join('agents','estimates.agentid','=','agents.id')
+    ->orderBy('estimates.id','desc')
+    ->whereDate('estimates.created_at',$day)->get();
+    return $estimates;
 
+}

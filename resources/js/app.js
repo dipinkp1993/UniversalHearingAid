@@ -40,6 +40,7 @@ Vue.component('home-component', require('./components/Home.vue').default);
 Vue.component('agents-component', require('./components/Addagents.vue').default);
 Vue.component('estimates-component', require('./components/Estimates.vue').default);
 Vue.component('update-estimates-component', require('./components/UpdateEstimates.vue').default);
+Vue.component('monthly-report', require('./components/MonthlyReport.vue').default);
 
 
 /**

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Agents;
 use App\Models\Estimates;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 
 class HomeController extends Controller
@@ -55,5 +56,22 @@ class HomeController extends Controller
     {
         $inv=getInvoiceById($id);
         return view('invoice',compact('inv'));
+    }
+    public function monthlyReport()
+    {
+        return view('monthlyreport');
+    }
+    public function getmonthlyReport(Request $request)
+    {
+        return getReportByMonth($request);
+    }
+    public function getMonthlyChart(Request $request)
+    {
+        $s= getTotalBydate($request);
+        return $s;
+    }
+    public function getaDayEstimate($id)
+    {
+        return getEstimatesAday($id);
     }
 }
