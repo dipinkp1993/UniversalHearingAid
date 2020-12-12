@@ -13,7 +13,7 @@ header('Content-Type: text/html');?>
   <meta name="description" content=""/>
   <meta name="author" content=""/>
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <title>Customer Management System</title>
+  <title>Universal-Customer Management System</title>
  
    <!-- Bootstrap core JavaScript-->
  

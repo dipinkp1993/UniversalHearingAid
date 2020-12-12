@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
   <meta name="description" content=""/>
   <meta name="author" content=""/>
-  <title>Rocker - Bootstrap4  Admin Dashboard Template</title>
+  <title>Universal-Customer Management System</title>
   <!--favicon-->
   <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
   <!-- Bootstrap core CSS-->
@@ -35,7 +35,7 @@
 		 	<div class="text-center">
 		 		<img src="assets/images/logo-icon.png">
 		 	</div>
-		  <div class="card-title text-uppercase text-center py-3">Sign In-Customer Records</div>
+		  <div class="card-title text-uppercase text-center py-3">Sign In</div>
             <form method="POST" action="{{ route('login') }}">
                 @csrf
 			  <div class="form-group">
