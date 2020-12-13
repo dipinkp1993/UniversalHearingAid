@@ -7,17 +7,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
   <meta name="description" content=""/>
   <meta name="author" content=""/>
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>Universal-Customer Management System</title>
   <!--favicon-->
-  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="{{ asset('assets/images/favicon.ico')}}" type="image/x-icon">
   <!-- Bootstrap core CSS-->
-  <link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="{{ asset('assets/css/bootstrap.min.css')}}" rel="stylesheet"/>
   <!-- animate CSS-->
-  <link href="assets/css/animate.css" rel="stylesheet" type="text/css"/>
+  <link href="{{ asset('assets/css/animate.css')}}" rel="stylesheet" type="text/css"/>
   <!-- Icons CSS-->
-  <link href="assets/css/icons.css" rel="stylesheet" type="text/css"/>
+  <link href="{{ asset('assets/css/icons.css')}}" rel="stylesheet" type="text/css"/>
   <!-- Custom Style-->
-  <link href="assets/css/app-style.css" rel="stylesheet"/>
+  <link href="{{ asset('assets/css/app-style.css')}}" rel="stylesheet"/>
   
 </head>
 
@@ -33,11 +34,11 @@
       
 		 <div class="card-content p-2">
 		 	<div class="text-center">
-		 		<img src="assets/images/logo-icon.png">
+		 		<img src="{{ asset('assets/images/logo-icon.png')}}">
 		 	</div>
 		  <div class="card-title text-uppercase text-center py-3">Sign In</div>
-            <form method="POST" action="{{ route('login') }}">
-                @csrf
+       <form method="POST" action="{{ route('login') }}">
+            @csrf
 			  <div class="form-group">
 			   <div class="position-relative has-icon-right">
 				  <label for="email" class="sr-only">Email</label>
@@ -64,7 +65,7 @@
                <span class="invalid-feedback" role="alert">
                    <strong>{{ $message }}</strong>
                </span>
-              @enderror
+          @enderror
                </div>
                
 			  </div>
@@ -82,9 +83,9 @@
 	</div><!--wrapper-->
 	
   <!-- Bootstrap core JavaScript-->
-  <script src="assets/js/jquery.min.js"></script>
-  <script src="assets/js/popper.min.js"></script>
-  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="{{ asset('assets/js/jquery.min.js')}}"></script>
+  <script src="{{ asset('assets/js/popper.min.js')}}"></script>
+  <script src="{{ asset('assets/js/bootstrap.min.js')}}"></script>
   
 </body>
 
