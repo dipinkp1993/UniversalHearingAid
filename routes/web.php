@@ -33,3 +33,5 @@ Route::get('/monthlyreport', [App\Http\Controllers\HomeController::class, 'month
 Route::post('/monthlyreport', [App\Http\Controllers\HomeController::class, 'getmonthlyReport'])->name('postestimates');
 Route::post('/getmonthlychart', [App\Http\Controllers\HomeController::class, 'getMonthlyChart'])->name('getdateentry');
 Route::post('/estimatesofaday/{id}', [App\Http\Controllers\HomeController::class, 'getaDayEstimate'])->name('getdateentry');
+Route::get('/changepassword', [App\Http\Controllers\HomeController::class, 'changePassword'])->name('cpassview');
+Route::post('/changepassword', [App\Http\Controllers\HomeController::class, 'postPassword'])->name('cpasssubmit');
