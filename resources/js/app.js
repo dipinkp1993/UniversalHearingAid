@@ -41,6 +41,7 @@ Vue.component('agents-component', require('./components/Addagents.vue').default)
 Vue.component('estimates-component', require('./components/Estimates.vue').default);
 Vue.component('update-estimates-component', require('./components/UpdateEstimates.vue').default);
 Vue.component('monthly-report', require('./components/MonthlyReport.vue').default);
+Vue.component('grafic-component', require('./components/Graphics.vue').default);
 
 
 /**

@@ -81,6 +81,8 @@
           <div class="card">
             <div class="card-header text-uppercase">Total Estimated Per Day</div>
             <div class="card-body">
+               <br>
+            <line-chart :chart-data="datacollection" :height="200"></line-chart>
 			  <div class="table-responsive">
               <table id="default-datatable" class="table table-bordered">
                 <thead>
@@ -98,8 +100,10 @@
                     <tr><th class="text-center">Total</th><th class="text-center"><i class="fas fa-rupee-sign"></i>RS {{total}}</th></tr>
                 </tbody>   
             </table>
-            
+                
+
             </div>
+           
             </div>
           </div>
         </div>
@@ -149,14 +153,17 @@
      
     </div>
    
-  
+    
   </div>
  
 </template>
 
 <script>
-import { Bar, Line } from 'vue-chartjs';
+import LineChart from './LineChart.vue'
     export default {
+      components: {
+    LineChart
+  },
         data(){
             return {
                 years:[{value:'2020'},{ value:'2021'},{ value:'2022'},{ value:'2023'}],
@@ -171,6 +178,7 @@ import { Bar, Line } from 'vue-chartjs';
                 l:null,
                 dl:null,
                 da:null,
+                datacollection: null
             }
         },
         methods:{
@@ -180,11 +188,11 @@ import { Bar, Line } from 'vue-chartjs';
                 
                 var i=this.newreport;
                 axios.post('/getmonthlychart',i).then((response) => {
-            //let data = response.data;
+               let data = response.data;
                 this.chartDailyAmounts=response.data;
                 });
                 console.log(this.chartDailyAmounts);
-                //this.getMonthlyChart(i);
+                this.getMonthlyChart(i);
                 axios.post('/monthlyreport',i).then(res=>{
                 this.monthestimates=res.data;
                 this.l=res.data.length;
@@ -198,31 +206,34 @@ import { Bar, Line } from 'vue-chartjs';
           
         getMonthlyChart(inp)
         {
-          
-            let Days = new Array();
+            let Days=new Array();
             let Prices = new Array();
+            let Labels = new Array();
             axios.post('/getmonthlychart',inp).then((response) => {
-            //let data = response.data;
-            this.chartDailyAmounts=res.data;
+            let data = response.data;
+            //this.chartDailyAmounts=res.data;
             this.dl=null;
-           /* if(data) {
+            console.log(data);
+           if(data) {
                data.forEach(element => {
-               Days.push(element.year);
+               Days.push(element.day);
                Labels.push(element.tprice);
                Prices.push(element.tprice);
                });
-               this.renderChart({
-               labels: Days,
-               datasets: [{
-                  label: 'Total collected',
-                  backgroundColor: '#FC2525',
-                  data: Prices
-            }]
-         }, {responsive: true, maintainAspectRatio: false})
+                this.datacollection = {
+        labels:Days,
+        datasets: [
+          {
+            label: 'Amount',
+            backgroundColor: '#ff8000',
+            data:  Prices,
+          },
+        ]
+      }
        }
        else {
           console.log('No data');
-       }*/
+       }
       });            
             },
         getEstimatesDay(date)
@@ -237,7 +248,7 @@ import { Bar, Line } from 'vue-chartjs';
         },
 
         },
-         computed:{
+  computed:{
      total: function() {
       var sum=0;
       this.tot= this.monthestimates.reduce((sum, estimate) => sum + estimate.estimated_price, 0);  
